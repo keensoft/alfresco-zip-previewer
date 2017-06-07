@@ -32,5 +32,17 @@
             <ref bean="mimetypeService" />
         </property>
     </bean>
+    
+    <bean id="transformer.rar2pdf" class="org.alfresco.repo.content.transform.ProxyContentTransformer" parent="baseContentTransformer">
+        <property name="worker">
+            <ref bean="transformer.worker.rar2pdf" />
+        </property>
+    </bean>
+    
+    <bean id="transformer.worker.rar2pdf" class="es.keensoft.repo.content.transform.RARContentTransformerWorker" >
+        <property name="mimetypeService">
+            <ref bean="mimetypeService" />
+        </property>
+    </bean>
 
 </beans>

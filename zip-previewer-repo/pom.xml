@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>es.keensoft</groupId>
     <artifactId>zip-previewer-repo</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <name>zip-previewer-repo Platform Jar Module - SDK 3</name>
-    <description>Platform JAR Module (to be included in the alfresco.war) - SDK 3</description>
+    <description>PDF view (entries list) for ZIP and RAR compressed files</description>
     <packaging>jar</packaging>
 
     <properties>
