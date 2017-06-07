@@ -27,7 +27,7 @@ Downloading the ready-to-deploy-plugin
 --------------------------------------
 The binary distribution is made of one JAR file to be deployed in Alfresco as a repo module:
 
-* [repo JAR](https://github.com/keensoft/alfresco-zip-previewer/releases/download/1.0.0/zip-previewer-repo-1.0.0.jar)
+* [repo JAR](https://github.com/keensoft/alfresco-zip-previewer/releases/download/1.1.0/zip-previewer-repo-1.1.0.jar)
 
 You can install it by copying JAR file to `$ALFRESCO_HOME/modules/platform` and re-starting Alfresco.
 
