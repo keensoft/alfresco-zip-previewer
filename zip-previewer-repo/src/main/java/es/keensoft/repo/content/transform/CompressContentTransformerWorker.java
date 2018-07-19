@@ -14,8 +14,8 @@ import org.alfresco.service.cmr.repository.TransformationOptions;
 import org.alfresco.util.TempFileProvider;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.pdmodel.edit.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -64,7 +64,7 @@ public abstract class CompressContentTransformerWorker extends ContentTransforme
         float fontSize = 8;
         float leading = 1.5f * fontSize;
         
-        PDRectangle mediabox = page.findMediaBox();
+        PDRectangle mediabox = page.getMediaBox();
         float margin = 72;
         float startX = mediabox.getLowerLeftX() + margin;
         float startY = mediabox.getUpperRightY() - margin;
@@ -73,7 +73,7 @@ public abstract class CompressContentTransformerWorker extends ContentTransforme
         
         content.beginText();
         content.setFont(PDType1Font.COURIER, fontSize);
-        content.moveTextPositionByAmount(startX, startY);
+        content.newLineAtOffset(startX, startY);
         String[] lines = compressedEntries.split("\n");
         for (String line : lines) {
         	
@@ -88,14 +88,14 @@ public abstract class CompressContentTransformerWorker extends ContentTransforme
                 
                 content.beginText();
                 content.setFont(PDType1Font.COURIER, fontSize);
-                content.moveTextPositionByAmount(startX, startY);
+                content.newLineAtOffset(startX, startY);
                 
                 currentY = startY;
         		
         	}
         	
-            content.drawString(line);
-            content.moveTextPositionByAmount(0, -leading);
+            content.showText(line);
+            content.newLineAtOffset(0, -leading);
             currentY = currentY - leading;
 
         }
